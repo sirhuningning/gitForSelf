@@ -8,9 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>学院登录界面</title>
 </head>
 <body>
-ssssssssssssssssssssssssssss
+    <form method="post" action="login">
+        <input type="input" name="username">
+        <input type="input" name="userpass">
+        <input type="submit" value="提交">
+    </form>
 </body>
 </html>

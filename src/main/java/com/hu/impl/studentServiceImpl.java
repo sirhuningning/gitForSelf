@@ -15,6 +15,7 @@ public class studentServiceImpl implements studentService {
     @Resource
     private PeActallotMapper peActallotMapper;
 
+    @Override
     public PeActallot selectList(Integer id) {
         id=355;
         PeActallot peActallot = peActallotMapper.selectByPrimaryKey(id);

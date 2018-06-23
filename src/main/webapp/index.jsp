@@ -8,15 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>学院登录界面</title>
 </head>
 <body>
-
- this is a message
-
-  this is a dev test
-
-dddd
->>>>>>> dev
+    <form method="post" action="login">
+        <input type="input" name="username">
+        <input type="input" name="userpass">
+        <input type="submit" value="添加">
+    </form>
 </body>
 </html>

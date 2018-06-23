@@ -53,7 +53,7 @@
     <!-- 配置sqlSessionFactory -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="mapperLocations" value="classpath:xml/PeActallotMapper.xml" />
+        <property name="mapperLocations" value="classpath:xml/*.xml" />
     </bean>
     <!-- 使用mapper接口的时候扫描 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

@@ -16,13 +16,13 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
 
-        <javaModelGenerator targetPackage="com.hu.model" targetProject="E:/workspace/ideaWorkSpace/Student/src/main/java">
+        <javaModelGenerator targetPackage="com.hu.model" targetProject="E:/workspace/ideaWorkSpace/gitForSelf/src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!--如果生成的xml不需要包，例如在resources文件夹下，则可以设置targetPackage=.，否则需要设置包名-->
-        <sqlMapGenerator targetPackage="." targetProject="E:/workspace/ideaWorkSpace/Student/src/main/resources/xml">
+        <sqlMapGenerator targetPackage="." targetProject="E:/workspace/ideaWorkSpace/gitForSelf/src/main/resources/xml">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
@@ -30,7 +30,7 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table schema="test" tableName="actallot" domainObjectName="PeActallot"
+        <table schema="test" tableName="testUser" domainObjectName="testUser"
                enableCountByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false">
