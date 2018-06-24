@@ -11,6 +11,8 @@
     <title>学院登录界面 this is dev for master</title>
 </head>
 <body>
+
+学院登录界面 this is dev for maste
 <<<<<<< HEAD
   this is a dev test
 dddd
