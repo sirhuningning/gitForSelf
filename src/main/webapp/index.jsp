@@ -8,11 +8,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>学院登录界面 this is master</title>
 </head>
 <body>
+<<<<<<< HEAD
   this is a dev test
 dddd
 开心较好
+=======
+    <form method="post" action="login">
+        <input type="input" name="username">
+        <input type="input" name="userpass">
+        <input type="submit" value="添加">
+    </form>
+>>>>>>> master
 </body>
 </html>
