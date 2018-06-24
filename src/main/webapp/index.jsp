@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>学院登录界面 this is dev</title>
+    <title>学院登录界面 this is dev for master</title>
 </head>
 <body>
 <<<<<<< HEAD
