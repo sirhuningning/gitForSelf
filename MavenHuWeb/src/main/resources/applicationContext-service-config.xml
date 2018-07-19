@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+        >
+     <!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="crm"/>
+	<!-- <dubbo:registry address="zookeeper://10.155.20.60:2181"/>-->
+	<dubbo:registry default="true" address="${zookeeper.cluster}" protocol="zookeeper"/>
+	<!--<dubbo:registry address="${zookeeper.cluster}"/>-->
+	<!-- 远程服务调用重试次数，不包括第一次调用-->
+	<dubbo:consumer retries="${dubbo.consumer.retries}" timeout="${dubbo.consumer.timeout}"/>
+	<!-- <dubbo:monitor address="192.168.100.123:7071"/>-->
+	<!-- <dubbo:monitor protocol="registry"/> -->
+</beans>

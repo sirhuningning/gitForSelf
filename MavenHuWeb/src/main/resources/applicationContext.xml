@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!--<bean id="placeholderConfig" class="com.koolearn.crm.commons.SystemGlobalsPropertyPlaceholderConfigurer"/>-->
+
+	<bean class="com.koolearn.framework.common.utils.spring.SpringContextUtils"/>
+
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		 <!--控制一个pool最多有多少个状态为idle(空闲的)的jedis实例-->
+		 <property name="maxIdle" value="30"/>
+		 <property name="minIdle" value="10"/>
+		 <!--设置最大实例总数， 每个客户端可以跟proxy建立的连接数-->
+		 <property name="maxTotal" value="300"/>
+		 <!--表示当borrow(引入)一个jedis实例时，最大的等待时间，如果超过等待时间，则直接抛出JedisConnectionException-->
+		 <property name="maxWaitMillis" value="3000"/>
+		 <property name="softMinEvictableIdleTimeMillis" value="1800000"/>
+		 <property name="timeBetweenEvictionRunsMillis" value="-1"/>
+	</bean>
+	
+	<bean id="hessianRedisSerializer" class="com.koolearn.framework.redis.client.HessianRedisSerializer"/>
+	
+	<bean id="redisClient" class="com.koolearn.framework.redis.client.KooJedisClient"
+		init-method="init" destroy-method="destroy">
+		<property name="prefix" value="crm_redis"></property>
+		<property name="config" ref="jedisPoolConfig"></property>
+		<property name="serializer" ref="hessianRedisSerializer"></property>
+		<property name="address" value="${zookeeper.cluster.address.codis}"></property>
+	</bean>
+
+	<!--外部系统接口-->
+	${dubbo.registry.koo}
+	<dubbo:reference id="openService" interface="com.koolearn.sso.service.IOpenService" ${dubbo.reference.registry}/>
+	<!--End-->
+	<dubbo:reference id="peStudentService" interface="com.koolearn.crm.students.api.IPeStudentService" check="false"/>
+
+	<dubbo:reference id="peSysusersService" interface="com.koolearn.crm.system.api.IPeSysusersService"/>
+	<dubbo:reference id="peDepartmentService" interface="com.koolearn.crm.system.api.IPeDepartmentService"/>
+	<dubbo:reference id="peShowFieldsService" interface="com.koolearn.crm.system.api.IPeShowFieldsService"/>
+	<!--角色栏目权限-->
+	<dubbo:reference id="peRoleService" interface="com.koolearn.crm.system.api.IPeRoleService"/>
+	<dubbo:reference id="prUserRoleService" interface="com.koolearn.crm.system.api.IPrUserRoleService"/>
+	<dubbo:reference id="prRoleColumnService" interface="com.koolearn.crm.system.api.IPrRoleColumnService"/>
+	<dubbo:reference id="prRoleColumnActionService" interface="com.koolearn.crm.system.api.IPrRoleColumnActionService"/>
+	<!--End-->
+
+	<!--销售目标设置-->
+	<dubbo:reference id="peSaleTargetService" interface="com.koolearn.crm.system.api.IPeSaleTargetService"/>
+</beans>

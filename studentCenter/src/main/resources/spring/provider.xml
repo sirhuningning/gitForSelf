@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+	   default-autowire="byName" default-lazy-init="false">
+
+	<!-- 远程服务调用重试次数，不包括第一次调用-->
+	<dubbo:consumer retries="${dubbo.consumer.retries}" timeout="${dubbo.consumer.timeout}"/>
+
+	<!--外部系统接口-->
+	<!--End-->
+
+	<!-- 系统用户接口 -->
+	<dubbo:service interface="com.koolearn.crm.system.api.IPeSysusersService" protocol="dubbo" ref="peSysusersService"/>
+	<bean name="peSysusersService" class="com.koolearn.crm.system.service.PeSysusersServiceImpl"/>
+
+	<!--角色权限接口-->
+	<dubbo:service interface="com.koolearn.crm.system.api.IPeRoleService" protocol="dubbo" ref="peRoleService"/>
+	<bean name="peRoleService" class="com.koolearn.crm.system.service.PeRoleServiceImpl"/>
+
+	<dubbo:service interface="com.koolearn.crm.system.api.IPrUserRoleService" protocol="dubbo" ref="prUserRoleService"/>
+	<bean name="prUserRoleService" class="com.koolearn.crm.system.service.PrUserRoleServiceImpl"/>
+
+	<dubbo:service interface="com.koolearn.crm.system.api.IPrRoleColumnService" protocol="dubbo" ref="prRoleColumnService"/>
+	<bean name="prRoleColumnService" class="com.koolearn.crm.system.service.PrRoleColumnServiceImpl"/>
+
+	<dubbo:service interface="com.koolearn.crm.system.api.IPrRoleColumnActionService" protocol="dubbo" ref="prRoleColumnActionService"/>
+	<bean name="prRoleColumnActionService" class="com.koolearn.crm.system.service.PrRoleColumnActionServiceImpl"/>
+	<!--End-->
+
+	<!--部门接口-->
+	<dubbo:service interface="com.koolearn.crm.system.api.IPeDepartmentService" protocol="dubbo" ref="peDepartmentService"/>
+	<bean name="peDepartmentService" class="com.koolearn.crm.system.service.PeDepartmentServiceImpl"/>
+
+	<!--显示字段接口-->
+	<dubbo:service interface="com.koolearn.crm.system.api.IPeShowFieldsService" protocol="dubbo" ref="peShowFieldsService"/>
+	<bean name="peShowFieldsService" class="com.koolearn.crm.system.service.PeShowFieldsServiceImpl"/>
+
+	<!--销售目标设置-->
+	<dubbo:service interface="com.koolearn.crm.system.api.IPeSaleTargetService" protocol="dubbo" ref="peSaleTargetService"/>
+	<bean name="peSaleTargetService" class="com.koolearn.crm.system.service.PeSaleTargetServiceImpl"/>
+</beans>
