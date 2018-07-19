@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byName"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://springframework.org/schma/util" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.2.xsd
+            http://www.springframework.org/schema/mvc
+            http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+            http://www.springframework.org/schema/util 
+            http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+	<!--<mvc:interceptors>-->
+		<!--<mvc:interceptor>-->
+			<!--<mvc:mapping path="/**"/>-->
+			<!--<mvc:exclude-mapping path="/system/login"/>-->
+			<!--<mvc:exclude-mapping path="/system/logout"/>-->
+			<!--<mvc:exclude-mapping path="/system/error"/>-->
+			<!--&lt;!&ndash; 不拦截专题活动 &ndash;&gt;-->
+			<!--<mvc:exclude-mapping path="/outside/**"/>-->
+			<!--&lt;!&ndash; 不拦截模板下载 &ndash;&gt;-->
+			<!--<mvc:exclude-mapping path="/student/getUploadStudentTemplet"/>-->
+			<!--<mvc:exclude-mapping path="/donutStudent/getUploadStudentTemplet"/>-->
+			<!--<mvc:exclude-mapping path="/reports/getUploadAchievementTemplet"/>-->
+			<!--<mvc:exclude-mapping path="/saleActivity/getUploadMemberTemplet"/>-->
+			<!--&lt;!&ndash; 不拦截乐语 &ndash;&gt;-->
+			<!--<mvc:exclude-mapping path="/looyu/**"/>-->
+			<!--&lt;!&ndash;不拦截智齿的请求&ndash;&gt;-->
+			<!--<mvc:exclude-mapping path="/sobot/**"/>-->
+			<!--&lt;!&ndash;不拦截CommonController&ndash;&gt;-->
+			<!--<mvc:exclude-mapping path="/common/**"/>-->
+			<!--&lt;!&ndash;不拦截双呼&ndash;&gt;-->
+			<!--<mvc:exclude-mapping path="/cdr/**"/>-->
+			<!--&lt;!&ndash;不拦截小能的请求&ndash;&gt;-->
+			<!--<mvc:exclude-mapping path="/xiaoneng/**"/>-->
+			<!--&lt;!&ndash;不拦截公用模块的请求&ndash;&gt;-->
+			<!--<mvc:exclude-mapping path="/frame/**"/>-->
+			<!--<mvc:exclude-mapping path="/inpart/**"/>-->
+			<!--<bean class="com.koolearn.crm.web.interceptor.SystemInterceptor"/>-->
+		<!--</mvc:interceptor>-->
+	<!--</mvc:interceptors>-->
+</beans>

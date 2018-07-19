@@ -16,71 +16,9 @@
 			<param name="AcceptOnMatch" value="true"/>
 		</filter>
 	</appender>
-	<appender name="stdout" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${catalina.base}/logs/stdout.log"/>
-		<param name="Append" value="true"/>
-		<param name="MaxFileSize" value="50MB"/>
-		<param name="MaxBackupIndex" value="10"/>
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{dd HH:mm:ss,SSS\} %-5p] %-20c - %m%n"/>
-		</layout>
-	</appender>
-	<appender name="stderr" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${catalina.base}/logs/stderr.log"/>
-		<param name="Append" value="true"/>
-		<param name="MaxFileSize" value="50MB"/>
-		<param name="MaxBackupIndex" value="3"/>
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{dd HH:mm:ss,SSS\} %-5p] %-20c - %m%n"/>
-		</layout>
-	</appender>
-
-	<appender name="dubboTimeoutAlarm" class="com.koolearn.framework.logger.kafka.KafkaLoggerAppender">
-		<param name="regAdd" value="${kafkaLogger.regAdd.cluster}"/>
-		<param name="topic" value="timeout-topic"/>
-		<param name="remoteLoggerName" value="crm-web"/>
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS}#@#%m"/>
-		</layout>
-	</appender>
-
-	<appender name="brokenMonitor" class="com.koolearn.framework.logger.kafka.KafkaLoggerAppender">
-		<param name="regAdd" value="${kafkaLogger.regAdd.cluster}"/>
-		<param name="topic" value="component-check-topic"/>
-		<param name="remoteLoggerName" value="crm-web"/>
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS}#@#%m"/>
-		</layout>
-	</appender>
-
-	<appender name="logTimeline" class="com.koolearn.framework.logger.kafka.KafkaLoggerAppender">
-		<param name="regAdd" value="${kafkaLogger.regAdd.cluster}"/>
-		<param name="topic" value="monitor-log-topic"/>
-		<param name="remoteLoggerName" value="crm-web"/>
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS}#@#%m"/>
-		</layout>
-	</appender>
-
-	<appender name="catAppender" class="com.dianping.cat.log4j.CatAppender"/>
-
-	<logger name="timeoutLogger" additivity="false">
-		<level value="info"/>
-		<appender-ref ref="dubboTimeoutAlarm"/>
-	</logger>
-	<logger name="brokenMonitorLog" additivity="false">
-		<level value="info"/>
-		<appender-ref ref="brokenMonitor"/>
-	</logger>
-	<logger name="remoteLogger" additivity="false">
-		<level value="info"/>
-		<appender-ref ref="logTimeline"/>
-	</logger>
 
 	<root>
 		<priority value="info"/>
-		<appender-ref ref="stdout"/>
-		<appender-ref ref="catAppender"/>
-		<!--<appender-ref ref="myConsole"/>-->
+		<appender-ref ref="myConsole"/>
 	</root>
 </log4j:configuration>
